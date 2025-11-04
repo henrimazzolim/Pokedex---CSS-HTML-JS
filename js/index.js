@@ -28,7 +28,7 @@ async function loadPokemons() {
                 <h3 class="card-title">${capitalizeFirstLetter(
                     pokemon.name
                 )}</h3>
-            <div class="d-flex gap-2 my-2"
+            <div class="d-flex gap-2 my-2">
                 ${buttonTipo(Array.from(pokemon.types))}
             </div>
             </div>
@@ -49,32 +49,32 @@ async function search() {
     if (search == "") initializePage();
     else {
         const pokemon = await searchPokemon();
-        div.innerHTML =  `<div class="col">
-                    <a href="detalhes.html?numero=${
-                        pokemon.id
-                    }" class="text-decoration-none">
+        console.log(pokemon.types[0].type.name)
+        div.innerHTML = `<div class="col">
+                    <a href="detalhes.html?numero=${pokemon.id
+            }" class="text-decoration-none">
                     <div class="card" style="background-color:${getCor(
-                        pokemon.types[0].type.name
-                    )}</div>
-                        <div id="imgPoke" class="card-img-top">${carousel(
-                    pokemon.sprites
-                 )}</div>
-                <div class="card-body text-white">
-                    <h5 class="card-text mb-1">N° ${pokemon.id
-                        .toString()
-                        .padStart(3, "0")}</h5>
-                    <h3 class="card-title">${capitalizeFirstLetter(
-                        pokemon.name
-                    )}</h3>
-                    <div class="d-flex gap-2 my-2">
-                        ${buttonTipo(Array.from(pokemon.types))}
-                    </div>
+                pokemon.types[0].type.name
+            )}">
+            
+            <div id="imgPoke" class="card-img-top">${carousel(pokemon.sprites)}</div>
+            <div class="card-body text-white">
+                <h5 class="card-text mb-1">N° ${pokemon.id
+                .toString()
+                .padStart(3, "0")}</h5>
+                <h3 class="card-title">${capitalizeFirstLetter(
+                    pokemon.name
+                )}</h3>
+                <div class="d-flex gap-2 my-2">
+                    ${buttonTipo(Array.from(pokemon.types))}
                 </div>
             </div>
-            </a>
+        </div>
+        </a>
+                    </div>
         </div>`;
-    loading = false;
-    filtered = true;
+        loading = false;
+        filtered = true;
     }
 }
 

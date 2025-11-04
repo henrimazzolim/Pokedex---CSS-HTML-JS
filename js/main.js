@@ -71,7 +71,7 @@ async function getPokemon(resource) {
 
 async function searchPokemon() {
     if (loading) return;
-    let search = document.querySelector('input(type="search")').value;
+    let search = document.querySelector('input[type="search"]').value;
     if (search != "") {
         loading = true;
         const pokemon = await getPokemon("pokemon/" + search);
@@ -100,8 +100,9 @@ function carousel(sprites) {
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next"<
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span> 
+            <span class="visually-hidden">Next</span>
         </button>
+
     </div>`;
 }
 
